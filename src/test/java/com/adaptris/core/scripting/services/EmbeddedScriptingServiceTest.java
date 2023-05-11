@@ -18,8 +18,9 @@ import com.adaptris.core.BranchingServiceCollection;
 import com.adaptris.core.MetadataElement;
 import com.adaptris.core.services.metadata.AddMetadataService;
 import com.adaptris.core.util.LifecycleHelper;
+import com.adaptris.interlok.junit.scaffolding.services.ExampleServiceCase;
 
-public class EmbeddedScriptingServiceTest extends com.adaptris.interlok.junit.scaffolding.services.ExampleServiceCase {
+public class EmbeddedScriptingServiceTest extends ExampleServiceCase {
 
   private static final String MY_METADATA_KEY2 = "MyMetadataKey2";
   private static final String MY_METADATA_KEY3 = "MyMetadataKey3";
@@ -27,15 +28,6 @@ public class EmbeddedScriptingServiceTest extends com.adaptris.interlok.junit.sc
   private static final String NEXT_SERVICE_ID = "NextService";
   private static final String MY_METADATA_VALUE = "MyMetadataValue";
   private static final String MY_METADATA_KEY = "MyMetadataKey";
-
-  public static final String BASE_DIR_KEY = "GeneralServiceExamples.baseDir";
-
-  public EmbeddedScriptingServiceTest() {
-    super();
-    if (PROPERTIES.getProperty(BASE_DIR_KEY) != null) {
-      setBaseDir(PROPERTIES.getProperty(BASE_DIR_KEY));
-    }
-  }
 
   @Test
   public void testService() throws Exception {
@@ -64,8 +56,8 @@ public class EmbeddedScriptingServiceTest extends com.adaptris.interlok.junit.sc
     BranchingServiceCollection bsc = new BranchingServiceCollection();
     bsc.setFirstServiceId(getName());
     bsc.add(createServiceForBranch(getName(), NEXT_SERVICE_ID));
-    AddMetadataService next = new AddMetadataService(new ArrayList<>(Arrays.asList(new MetadataElement(
-        MY_METADATA_KEY2, MY_METADATA_VALUE))));
+    AddMetadataService next = new AddMetadataService(
+        new ArrayList<>(Arrays.asList(new MetadataElement(MY_METADATA_KEY2, MY_METADATA_VALUE))));
     next.setUniqueId(NEXT_SERVICE_ID);
     bsc.add(next);
 
@@ -124,7 +116,6 @@ public class EmbeddedScriptingServiceTest extends com.adaptris.interlok.junit.sc
     LifecycleHelper.close(service);
   }
 
-
   @Test
   public void testDoServiceWithEmptyScript() throws Exception {
     EmbeddedScriptingService service = new EmbeddedScriptingService();
@@ -171,14 +162,14 @@ public class EmbeddedScriptingServiceTest extends com.adaptris.interlok.junit.sc
 
   @Override
   protected String getExampleCommentHeader(Object obj) {
-    return super.getExampleCommentHeader(obj) + "<!--"
-        + "\nThis allows to embed scripts written in javascript."
+    return super.getExampleCommentHeader(obj) + "<!--" + "\nThis allows to embed scripts written in javascript."
         + "\nThe script is executed and the AdaptrisMessage that is due to be processed is"
         + "\nbound against the key 'message' and an instance of org.slf4j.Logger is also bound "
         + "\nto key 'log'. These can be used as a standard variable within the script."
         + "\nThe example below simply reverses an item of metadata using javascript as the scripting"
         + "\nlanguage. This isn't something that is easily supported with existing services "
-        +"\n(but why would you want to do it?)" + "\n-->\n";
+        + "\n(but why would you want to do it?)"
+        + "\n-->\n";
   }
 
 }

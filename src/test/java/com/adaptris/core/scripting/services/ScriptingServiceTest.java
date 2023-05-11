@@ -14,25 +14,17 @@ import org.junit.jupiter.api.Test;
 import com.adaptris.core.AdaptrisMessage;
 import com.adaptris.core.AdaptrisMessageFactory;
 import com.adaptris.core.util.LifecycleHelper;
+import com.adaptris.interlok.junit.scaffolding.services.ExampleServiceCase;
 
-public class ScriptingServiceTest extends com.adaptris.interlok.junit.scaffolding.services.ExampleServiceCase {
+public class ScriptingServiceTest extends ExampleServiceCase {
 
   private static final String KEY_SCRIPTING_BASEDIR = "scripting.basedir";
   public static final String SCRIPT = "\nvalue = message.getMetadataValue('MyMetadataKey');"
-      + "\nmessage.addMetadata('MyMetadataKey', value.reverse);";
+      + "\nmessage.addMetadata('MyMetadataKey', value.split(\"\").reverse().join(\"\"));";
 
   private static final String MY_METADATA_VALUE = "MyMetadataValue";
   private static final String MY_METADATA_KEY = "MyMetadataKey";
 
-  public static final String BASE_DIR_KEY = "GeneralServiceExamples.baseDir";
-
-  public ScriptingServiceTest() {
-    super();
-    if (PROPERTIES.getProperty(BASE_DIR_KEY) != null) {
-      setBaseDir(PROPERTIES.getProperty(BASE_DIR_KEY));
-    }
-  }
-  
   private File writeScript(boolean working) throws IOException {
     File result = null;
     File dir = new File(PROPERTIES.getProperty(KEY_SCRIPTING_BASEDIR, "./build/scripting"));
@@ -110,7 +102,6 @@ public class ScriptingServiceTest extends com.adaptris.interlok.junit.scaffoldin
 
     delete(script);
   }
-
 
   @Test
   public void testDoServiceWithFailingScript() throws Exception {
