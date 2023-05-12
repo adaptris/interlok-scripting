@@ -25,7 +25,7 @@ import lombok.NonNull;
 import lombok.Setter;
 
 /**
- * Supports arbitary scripting languges that are supported by JSR223.
+ * Supports arbitrary scripting languages that are supported by JSR223.
  * <p>
  * You should take care when configuring this class; it can present an audit trail issue when used in combination with
  * {@link com.adaptris.core.services.dynamic.DynamicServiceExecutor} if your script executes arbitrary system commands. In that situation,
