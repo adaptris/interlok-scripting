@@ -123,8 +123,8 @@ dependencies {
   api ("com.adaptris:interlok-core:$interlokCoreVersion") { changing= true}
   implementation "org.slf4j:slf4j-api:$slf4jVersion"
   implementation "org.graalvm.sdk:graal-sdk:22.3.2"
-  implementation "org.graalvm.js:js:22.3.2"
-  implementation "org.graalvm.js:js-scriptengine:22.3.2"
+  implementation "org.graalvm.js:js:23.0.0"
+  implementation "org.graalvm.js:js-scriptengine:23.0.0"
 
   annotationProcessor ("com.adaptris:interlok-core-apt:$interlokCoreVersion") {changing= true}
 
