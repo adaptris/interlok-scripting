@@ -39,7 +39,7 @@ import lombok.Setter;
  * </pre>
  * </p>
  * <p>
- * Similar to {@link com.adaptris.core.services.EmbeddedScriptingService}; the logger is bound as {@code log}.
+ * Similar to {@link com.adaptris.core.scripting.services.EmbeddedScriptingService}; the logger is bound as {@code log}.
  * </p>
  *
  * @config function
