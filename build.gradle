@@ -35,7 +35,7 @@ ext {
   organizationUrl = "http://interlok.adaptris.net"
   slf4jVersion = '2.0.13'
   mockitoVersion = '4.9.0'
-  graalJsVersion = '23.0.4'
+  graalJsVersion = '23.0.5'
 }
 
 ext.gitBranchNameOrTimestamp = { branchName ->
