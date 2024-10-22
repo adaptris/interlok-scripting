@@ -12,7 +12,7 @@
    file name: icu4j-24.1.0.jar
    False positive
    ]]></notes>
-   <packageUrl regex="true">^pkg:maven/org\.graalvm\.shadowed\.icu4j@.*$</packageUrl>
+   <packageUrl regex="true">^pkg:maven/org\.graalvm\.shadowed/icu4j@.*$</packageUrl>
    <cve>CVE-2016-6293</cve>
    <cve>CVE-2017-17484</cve>
    <cve>CVE-2015-5922</cve>
