@@ -133,7 +133,9 @@ dependencies {
   implementation "org.slf4j:slf4j-api:$slf4jVersion"
   implementation "org.graalvm.sdk:graal-sdk:$graalJsVersion"
   implementation "org.graalvm.js:js:$graalJsVersion"
+  implementation "org.graalvm.js:js-community:$graalJsVersion"
   implementation "org.graalvm.js:js-scriptengine:$graalJsVersion"
+  implementation "org.graalvm.truffle:truffle-enterprise:$graalJsVersion"
 
   annotationProcessor ("com.adaptris:interlok-core-apt:$interlokCoreVersion") {changing= true}
 
