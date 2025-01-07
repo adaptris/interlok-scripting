@@ -15,6 +15,7 @@ import com.adaptris.annotation.ComponentProfile;
 import com.adaptris.annotation.DisplayOrder;
 import com.adaptris.annotation.InputFieldDefault;
 import com.adaptris.core.CoreException;
+import com.adaptris.core.fs.FsHelper;
 import com.adaptris.core.util.Args;
 import com.adaptris.core.util.ExceptionHelper;
 import com.adaptris.fs.FsWorker;
@@ -89,7 +90,7 @@ public class ScriptingService extends ScriptingServiceImp {
   protected void initService() throws CoreException {
     try {
       Args.notBlank(getScriptFilename(), "scriptFilename");
-      File f = new File(getScriptFilename());
+      File f = FsHelper.toFile(getScriptFilename(), new File(getScriptFilename()));
       FsWorker.isFile(FsWorker.checkReadable(f));
       super.initService();
     } catch (Exception e) {
