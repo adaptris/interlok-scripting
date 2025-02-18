@@ -21,7 +21,6 @@ updates:
       - "java"
       - "develop"
     reviewers:
-      - aaron-mcgrath-adp
       - sebastien-belin-adp
       - higgyfella
 
@@ -36,6 +35,5 @@ updates:
       - "github_actions"
       - "develop"
     reviewers:
-      - aaron-mcgrath-adp
       - sebastien-belin-adp
       - higgyfella
