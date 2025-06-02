@@ -98,6 +98,11 @@ repositories {
   }
   maven { url "$nexusBaseUrl/content/groups/public" }
   maven { url "$nexusBaseUrl/content/groups/interlok" }
+  
+  maven {
+    name = "GraalVM"
+    url = uri("https://maven.pkg.github.com/graalvm/graaljs")
+  }  
 }
 
 
@@ -137,8 +142,10 @@ dependencies {
 
   annotationProcessor ("com.adaptris:interlok-core-apt:$interlokCoreVersion") {changing= true}
 
+  testImplementation "org.graalvm.js:js:$graalJsVersion"
+  
   testImplementation ("org.junit.jupiter:junit-jupiter-engine:5.12.2")
-    testImplementation ("org.junit.platform:junit-platform-launcher:1.12.1")
+  testImplementation ("org.junit.platform:junit-platform-launcher:1.12.1")
   testImplementation ("org.slf4j:slf4j-simple:$slf4jVersion")
   testImplementation ("com.adaptris:interlok-stubs:$interlokCoreVersion") { changing= true }
   testImplementation ("org.mockito:mockito-core:$mockitoVersion")
