@@ -29,5 +29,15 @@
    <cve>CVE-2014-7940</cve>
    <cve>CVE-2020-10531</cve>
    <cve>CVE-2016-7415</cve>
+   <cve>CVE-2017-15396</cve>
+   <cve>CVE-2017-15422</cve>
+   <cve>CVE-2020-21913</cve>
   </suppress>
+  <suppress>
+   <notes><![CDATA[
+   file name: graal-sdk-24.2.1.jar - Supported versions that are affected are Oracle Java SE: 8u371-perf, 17.0.7, 20.0.1; Oracle GraalVM Enterprise Edition: 21.3.6, 22.3.2; Oracle GraalVM for JDK: 17.0.7 and 20.0.1
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.graalvm\.sdk/graal\-sdk@.*$</packageUrl>
+   <cve>CVE-2023-22044</cve>
+  </suppress>  
 </suppressions>
