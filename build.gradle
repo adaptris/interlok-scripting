@@ -145,7 +145,7 @@ dependencies {
   testImplementation "org.graalvm.js:js:$graalJsVersion"
   
   testImplementation ("org.junit.jupiter:junit-jupiter-engine:5.12.2")
-  testImplementation ("org.junit.platform:junit-platform-launcher:1.12.1")
+  testImplementation ("org.junit.platform:junit-platform-launcher:1.13.3")
   testImplementation ("org.slf4j:slf4j-simple:$slf4jVersion")
   testImplementation ("com.adaptris:interlok-stubs:$interlokCoreVersion") { changing= true }
   testImplementation ("org.mockito:mockito-core:$mockitoVersion")
