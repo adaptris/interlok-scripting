@@ -14,8 +14,8 @@ plugins {
 }
 
 ext {
-  interlokCoreVersion = project.findProperty('interlokCoreVersion') ?: '5.0-SNAPSHOT'
-  releaseVersion = project.findProperty('releaseVersion') ?: '5.0-SNAPSHOT'
+  interlokCoreVersion = project.findProperty('interlokCoreVersion') ?: '5.1-SNAPSHOT'
+  releaseVersion = project.findProperty('releaseVersion') ?: '5.1-SNAPSHOT'
   nexusBaseUrl = project.findProperty('nexusBaseUrl') ?: 'https://nexus.adaptris.net/nexus'
   mavenPublishUrl = project.findProperty('mavenPublishUrl') ?: nexusBaseUrl + '/content/repositories/snapshots'
   javadocsBaseUrl = nexusBaseUrl + "/content/sites/javadocs/com/adaptris"
@@ -137,13 +137,16 @@ dependencies {
   api ("com.adaptris:interlok-core:$interlokCoreVersion") { changing= true}
   implementation "org.slf4j:slf4j-api:$slf4jVersion"
   implementation "org.graalvm.sdk:graal-sdk:$graalJsVersion"
-  implementation "org.graalvm.js:js:$graalJsVersion"
+  implementation "org.graalvm.js:js-language:$graalJsVersion"
+  implementation "org.graalvm.truffle:truffle-runtime:$graalJsVersion"
   implementation "org.graalvm.js:js-scriptengine:$graalJsVersion"
 
   annotationProcessor ("com.adaptris:interlok-core-apt:$interlokCoreVersion") {changing= true}
 
-  testImplementation "org.graalvm.js:js:$graalJsVersion"
-  
+  testImplementation "org.graalvm.js:js-language:$graalJsVersion"
+  testImplementation "org.graalvm.truffle:truffle-runtime:$graalJsVersion"
+  testImplementation "org.graalvm.js:js-scriptengine:$graalJsVersion"
+
   testImplementation ("org.junit.jupiter:junit-jupiter-engine:5.12.2")
   testImplementation ("org.junit.platform:junit-platform-launcher:1.13.3")
   testImplementation ("org.slf4j:slf4j-simple:$slf4jVersion")
