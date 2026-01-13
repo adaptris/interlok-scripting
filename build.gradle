@@ -9,7 +9,7 @@ plugins {
   id "nebula.optional-base" version "7.0.0"
   id "com.github.spotbugs" version "6.1.11"
   id "org.sonarqube" version "6.0.1.5171"
-  id "org.owasp.dependencycheck" version "12.1.1"
+  id "org.owasp.dependencycheck" version "12.1.9"
   id "io.freefair.lombok" version "8.13.1"
 }
 
@@ -324,6 +324,10 @@ dependencyCheck  {
   }
   analyzers {
     assemblyEnabled=false
+    ossIndex {
+      username = System.getenv("OSS_INDEX_USERNAME")
+      password = System.getenv("OSS_INDEX_PASSWORD")
+    }
   }
 }
 
