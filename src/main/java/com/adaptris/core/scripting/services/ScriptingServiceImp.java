@@ -5,7 +5,7 @@ import java.io.Reader;
 
 import javax.script.Bindings;
 import javax.script.ScriptEngine;
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 import org.apache.commons.lang3.BooleanUtils;
 
